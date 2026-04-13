@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "lvm-lagoon"
+version         = "0.1.0"
+description     = "Resolved spectral analysis pipeline for LVM IFU data of the Lagoon Nebula (M8)"
+readme          = "README.md"
+license         = { text = "MIT" }
+authors         = [{ name = "Amrita Singh" }]
+requires-python = ">=3.9"
+
+keywords = [
+    "astronomy", "spectroscopy", "IFU", "LVM",
+    "nebula", "emission lines", "PyNeb",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+    "numpy>=1.23",
+    "scipy>=1.9",
+    "astropy>=5.2",
+    "pyneb>=1.1",
+    "matplotlib>=3.6",
+]
+
+[project.optional-dependencies]
+dev  = ["pytest>=7", "pytest-cov", "jupyter", "nbconvert"]
+docs = ["sphinx", "sphinx-rtd-theme", "numpydoc"]
+
+[project.scripts]
+lvm-lagoon = "lvm_lagoon.cli:main"
+
+[project.urls]
+Homepage   = "https://github.com/Amrita27singh/LVM_lagoon_scripts"
+Repository = "https://github.com/Amrita27singh/LVM_lagoon_scripts"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["lvm_lagoon*"]
